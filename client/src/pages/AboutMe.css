@@ -1,0 +1,23 @@
+.about-page {
+  height: auto;
+  font-size: 25px;
+  padding: 60px;
+}
+.about-page p{
+  margin-bottom: 30px;
+}
+.back {
+  padding: 10px;
+}
+
+@media (max-width:669px) {
+  .about-page {
+    padding: 20px;
+    font-size: 15px;
+  }
+
+  .back {
+    padding: 0;
+  }
+
+}

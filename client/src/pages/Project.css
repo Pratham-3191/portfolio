@@ -1,0 +1,45 @@
+.projects{
+  height: auto;
+}
+.heading{
+  font-size: 60px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  margin-top: 140px;
+  margin-bottom: 60px;
+}
+.heading span{
+  color: #237bad;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+  gap: 30px;
+  padding: 0px 120px;
+}
+
+
+@media (max-width:950px) {
+  .heading{
+    font-size: 40px;
+  }
+  .projects{
+    height: auto;
+  }
+  .container{
+    flex-wrap: wrap;
+    padding: 0px 20px;
+  }
+}
+
+@media (max-width: 1136px) and (min-width: 951px) {
+  .container{
+    padding: 0px 50px;
+  }
+  .heading{
+    font-size: 50px;
+  }
+}
