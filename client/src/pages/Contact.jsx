@@ -17,7 +17,7 @@ function Contact() {
     e.preventDefault()
     console.log(e.isDefaultPrevented())
   
-    const res = await fetch('https://portfolio-jlutlenqp-pratham-chaudharis-projects.vercel.app/api',
+    const res = await fetch('https://portfolio-jlutlenqp-pratham-chaudharis-projects.vercel.app/api/contact',
       {
         method: 'POST',
         headers: {
