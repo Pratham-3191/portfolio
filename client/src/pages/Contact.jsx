@@ -3,7 +3,7 @@ import './Contact.css'
 import { Link } from 'react-router-dom'
 
 function Contact() {
-  const [formData, setFormData] = useState('')
+  const [formData, setFormData] = useState({})
   const [error, setError] = useState('')
   const [success,setSuccess]= useState('')
   const handleOnChange = (e) => {
@@ -25,7 +25,11 @@ function Contact() {
         },
         body: JSON.stringify(formData),
       });
-    const data = await res.json();
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || 'Request failed');
+      }
+  
     if (data.success === false) {
       setError(data.message);
       setSuccess('');
