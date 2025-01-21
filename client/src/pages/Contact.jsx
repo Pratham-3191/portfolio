@@ -17,7 +17,7 @@ function Contact() {
     e.preventDefault()
     console.log(e.isDefaultPrevented())
   
-    const res = await fetch('http://localhost:8000/api/contact',
+    const res = await fetch('https://portfolio-jlutlenqp-pratham-chaudharis-projects.vercel.app/api',
       {
         method: 'POST',
         headers: {
