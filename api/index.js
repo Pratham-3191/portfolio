@@ -42,6 +42,11 @@ app.post('/api/contact', async (req, res, next) => {
     next(error);
   }
 });
+app.get('*',(req,res,next)=>{
+  res.status(200).json({
+    message:'bad request'
+  })
+})
 
 app.use((err, req, res, next) => {
   res.json({
