@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../components/card.jsx'
+import Card from '../components/Card.jsx'
 import './Project.css'
 
 function Project() {
