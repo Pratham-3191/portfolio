@@ -1,13 +1,22 @@
+import dotenv from 'dotenv';
 import express from "express"
 import mongoose from "mongoose";
 import User from "./Model/user.model.js"
 import path from 'path'
 import { fileURLToPath } from "url";
 import { dirname } from "path";
-import dotenv from 'dotenv';
+import cors from 'cors'
 
-const app = express()
 dotenv.config()
+const app = express()
+
+const corsOptions = {
+  origin: process.env.CLIENT_URL,  // Allow only your frontend domain
+  methods: ['GET', 'POST'],
+  credentials: true,  // Enable credentials (cookies, authorization headers)
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

@@ -17,7 +17,7 @@ function Contact() {
     e.preventDefault()
     console.log(e.isDefaultPrevented())
   
-    const res = await fetch('/api/contact',
+    const res = await fetch('http://localhost:8000/api/contact',
       {
         method: 'POST',
         headers: {
