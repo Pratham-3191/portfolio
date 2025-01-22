@@ -18,13 +18,7 @@ const corsOptions = {
 // Enable CORS with the specified options
 app.use(cors(corsOptions));
 
-// Handle OPTIONS preflight requests
-app.options('*', (req, res) => {
-  res.set('Access-Control-Allow-Origin', process.env.CLIENT_URL); // Allow specific origin
-  res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS'); // Allow specific methods
-  res.set('Access-Control-Allow-Headers', 'Content-Type'); // Allow specific headers
-  res.status(200).json({ message: "Preflight request success" });
-});
+
 
 app.use(express.json());
 
@@ -68,6 +62,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-app.listen(8000, () => {
-  console.log("Server is running on port 8000");
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
