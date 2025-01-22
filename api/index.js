@@ -23,14 +23,24 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Endpoint to download CV
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
+// Endpoint to download CV
 app.get('/api/download-cv', (req, res) => {
   const filePath = path.join(__dirname, 'public', 'Resume_pratham.pdf');
-  res.download(filePath, 'cv.pdf', (err) => {
+  console.log('Resolved File Path:', filePath);
+
+  res.setHeader('Content-Type', 'application/pdf'); // Set the correct MIME type
+  res.setHeader('Content-Disposition', 'attachment; filename="Resume_pratham.pdf"');
+  
+  res.download(filePath, (err) => {
     if (err) {
+      console.error('Error downloading file:', err);
       res.status(500).send('Error downloading file.');
     }
   });
 });
+
 
 // Connect to MongoDB
 mongoose.connect(`mongodb+srv://prathamchaudhari124:${process.env.MONGOOSE_PASS}@portfolio.vzokw.mongodb.net/?retryWrites=true&w=majority&appName=portfolio`)
