@@ -6,13 +6,13 @@ const path = require('path');
 const cors = require('cors');
 
 const app = express();
+console.log(process.env.CLIENT_URL)
 
 // CORS options
 const corsOptions = {
   origin: process.env.CLIENT_URL,  // Allow only your frontend domain
   methods: ['GET', 'POST', 'OPTIONS'],  // Allow GET, POST, and OPTIONS methods
   allowedHeaders: ['Content-Type'],  // Allow Content-Type header
-  credentials: true,  // Enable credentials (cookies, authorization headers)
 };
 
 // Enable CORS with the specified options
