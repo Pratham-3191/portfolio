@@ -1,0 +1,80 @@
+.top {
+  height: auto;
+  position: relative;
+  padding: 20px 60px;
+}
+
+.back {
+  zoom: 2.5;
+  cursor: pointer;
+  color: black;
+}
+
+.slider {
+  height: 500px;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.top h1 {
+  text-align: center;
+  padding: 20px;
+  font-size: 40px;
+  color: #237bad;
+}
+
+.project-content {
+  padding: 60px;
+}
+
+.project-content p {
+  padding: 20px 0px;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.project-content li {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.project-content span {
+  font-weight: 600;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.cv {
+  padding: 12px 30px;
+  font-size: 18px;
+  background: #237bad;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cv:hover {
+  background: #1a5f8b;
+}
+
+/* Responsive */
+@media (max-width:991px) {
+  .top { padding: 10px; }
+  .top h1 { font-size: 35px; }
+  .slider { height: 400px; width: 600px; }
+}
+
+@media (max-width:669px) {
+  .slider { height: 220px; width: 350px; }
+  .top h1 { font-size: 25px; }
+  .project-content { padding: 20px; }
+  .project-content p, .project-content li { font-size: 15px; }
+}

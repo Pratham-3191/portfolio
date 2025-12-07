@@ -6,45 +6,25 @@ const path = require('path');
 const cors = require('cors');
 
 const app = express();
-console.log(process.env.CLIENT_URL)
 
 // CORS options
 const corsOptions = {
-  origin: process.env.CLIENT_URL,  // Allow only your frontend domain
-  methods: ['GET', 'POST', 'OPTIONS'],  // Allow GET, POST, and OPTIONS methods
-  allowedHeaders: ['Content-Type'],  // Allow Content-Type header
+  origin: process.env.CLIENT_URL,  
+  methods: ['GET', 'POST', 'OPTIONS'],  
+  allowedHeaders: ['Content-Type'],  
 };
 
-// Enable CORS with the specified options
 app.use(cors(corsOptions));
-
-
 
 app.use(express.json());
 
-// Endpoint to download CV
-app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Endpoint to download CV
-app.get('/api/download-cv', (req, res) => {
-  const filePath = path.join(__dirname, 'public', 'Resume_pratham.pdf');
-  console.log('Resolved File Path:', filePath);
-
-  res.setHeader('Content-Type', 'application/pdf'); // Set the correct MIME type
-  res.setHeader('Content-Disposition', 'attachment; filename="Resume_pratham.pdf"');
-  
-  res.download(filePath, (err) => {
-    if (err) {
-      console.error('Error downloading file:', err);
-      res.status(500).send('Error downloading file.');
-    }
-  });
-});
-
-
-// Connect to MongoDB
-mongoose.connect(`mongodb+srv://prathamchaudhari124:${process.env.MONGOOSE_PASS}@portfolio.vzokw.mongodb.net/?retryWrites=true&w=majority&appName=portfolio`)
-  .then(() => console.log('Successfully connected to MongoDB'));
+mongoose.connect(process.env.MONGO_URL,{
+  useNewUrlParser:true,
+  useUnifiedTopology:true,
+})
+  .then(() => console.log('Successfully connected to MongoDB'))
+  .catch((err)=> console.error('mongodb error',err));
 
 // POST endpoint for contact form data
 app.post('/api/contact', async (req, res, next) => {
@@ -74,5 +54,5 @@ app.use((err, req, res, next) => {
 // Start the server
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT }`);
 });

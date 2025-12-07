@@ -9,7 +9,10 @@ import ScrollToTop from './components/ScrollToTop.jsx';
 import Contact from './pages/Contact.jsx';
 import AboutMe from './pages/AboutMe.jsx';
 import Weather from './pages/Weather.jsx';
+import Fitstack from './pages/Fitstack.jsx';
 import Autohub from './pages/Autohub.jsx';
+import Experience from './pages/Experience.jsx';
+import InviteOnly from './pages/InviteOnly.jsx';
 import './App.css'
 //#d5e9fd;    light
 //#237bad    dark
@@ -26,12 +29,17 @@ function App() {
             <section id='about'>
               <About />
             </section>
+             <section id='experience'>
+              <Experience />
+            </section>
             <section id='projects'>
               <Project />
             </section>
           </>
         } path='/' />
-
+        
+           <Route element={<Fitstack />} path='/fitstack' />
+              <Route element={<InviteOnly />} path='/inviteOnly' />
         <Route element={<RealEstate />} path='/real-estate' />
         <Route element={<Autohub />} path='/autohub' />
         <Route element={<Weather />} path='/weather' />
@@ -45,7 +53,8 @@ function App() {
 
 function ConditionalHeader() {
   const location = useLocation();
-  const noHeaderPaths = ['/real-estate', '/contact', '/about','/autohub','/weather'];
+  const noHeaderPaths = 
+  ['/real-estate', '/contact', '/about','/autohub','/weather','/fitstack','/inviteOnly'];
 
   if (noHeaderPaths.includes(location.pathname)) {
     return null;

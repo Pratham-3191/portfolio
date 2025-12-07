@@ -1,3 +1,4 @@
+/* ===== Existing Projects Styles ===== */
 .projects{
   height: auto;
 }
@@ -19,9 +20,72 @@
   margin: 20px;
   gap: 30px;
   padding: 0px 120px;
+  flex-wrap: wrap; /* ensures cards wrap on smaller screens */
 }
 
+/* ===== Card Image Styling ===== */
+.container .card img {
+  width: 100%;
+  max-width: 400px; /* limit max width */
+  height: auto; /* maintain aspect ratio */
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
 
+/* ===== Work Experience Intro Section ===== */
+.experience-intro {
+  max-width: 900px;
+  margin: 20px auto 40px auto;
+  padding: 25px 30px;
+  background: #f0f8ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.experience-intro .role {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #237bad;
+  margin-bottom: 5px;
+}
+
+.experience-intro .company {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 4px;
+  color: #444;
+}
+
+.experience-intro .duration {
+  font-size: 1rem;
+  margin-top: 2px;
+  color: #777;
+}
+
+.experience-intro .summary {
+  margin-top: 15px;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
 @media (max-width:950px) {
   .heading{
     font-size: 40px;
@@ -32,6 +96,24 @@
   .container{
     flex-wrap: wrap;
     padding: 0px 20px;
+  }
+  .experience-intro {
+    padding: 20px;
+  }
+  .experience-intro .role {
+    font-size: 1.5rem;
+  }
+  .experience-intro .summary {
+    font-size: 0.95rem;
+  }
+  .container .card img {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 669px) {
+  .container .card img {
+    max-width: 260px;
   }
 }
 

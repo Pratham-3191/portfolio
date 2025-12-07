@@ -6,6 +6,7 @@ function Contact() {
   const [formData, setFormData] = useState({})
   const [error, setError] = useState('')
   const [success,setSuccess]= useState('')
+  const API= import.meta.env.VITE_API_URL;
   const handleOnChange = (e) => {
     setFormData({
       ...formData,
@@ -17,7 +18,7 @@ function Contact() {
     e.preventDefault()
     console.log(e.isDefaultPrevented())
   
-    const res = await fetch('https://portfolio-api-blue-zeta.vercel.app/api/contact',
+    const res = await fetch(`${API}/api/contact`,
       {
         method: 'POST',
         headers: {

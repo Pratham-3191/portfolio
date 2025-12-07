@@ -28,22 +28,12 @@ const TypedText = () => {
 function Home() {
   const [error, setError] = useState('');
 
-  const handleCV = async () => {
-    try {
-      const res = await fetch('/api/download-cv');
-      if (res.ok) {
-        const blob = await res.blob();
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'CV_pratham.pdf';
-        link.click();
-      } else {
-        setError("Failed to download CV.");
-      }
-    } catch (error) {
-      setError("Error downloading CV.");
-    }
-  };
+  // const handleCV = async () => {
+  //   try {
+  //   } catch (error) {
+  //     setError("Error downloading CV.");
+  //   }
+  // };
 
   return (
     <div id='home' className='main'>
@@ -60,7 +50,14 @@ function Home() {
             <Link to='https://www.instagram.com/pratham_1049/' className='deco'> <i className='bx zoom bxl-instagram'></i></Link>
           </div>
           <div className='error'>{error && error}</div>
-          <button onClick={handleCV} className='cv'>Download CV</button>
+          <a
+            href="https://drive.google.com/file/d/1KBCElysanGFdLjnGm0C4n_h_4YVcrNh7/view?pli=1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className='cv'>Download CV</button>
+          </a>
+
         </div>
       </div>
     </div>
